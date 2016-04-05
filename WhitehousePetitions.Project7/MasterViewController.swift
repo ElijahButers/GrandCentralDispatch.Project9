@@ -73,11 +73,13 @@ class MasterViewController: UITableViewController {
     
     func showError() {
         
+        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+        
         let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .Alert)
         ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(ac, animated: true, completion: nil)
+        self.presentViewController(ac, animated: true, completion: nil)
     }
-
+}
     
     // MARK: - Segues
 
