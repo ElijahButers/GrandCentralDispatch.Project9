@@ -65,7 +65,10 @@ class MasterViewController: UITableViewController {
             objects.append(obj)
         }
         
-        tableView.reloadData()
+        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+            
+        self.tableView.reloadData()
+        }
     }
     
     func showError() {
